@@ -44,6 +44,7 @@ function Data({ input }) {
     setData([])
     const timeout = setTimeout(()=>{
       if (input.length) {
+        setLoadingState(true)
         fetch(`https://api.github.com/search/users?q=${input.split(' ').join('+')}`)
           .then(response => response.json())
           .then(data => {
